@@ -182,7 +182,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             target.scrollIntoView({ behavior: 'smooth' });
-            if (navMenu) navMenu.style.display = 'none';
+            // Only close menu on mobile (when hamburger is visible)
+            if (navMenu && window.innerWidth <= 768) {
+                navMenu.style.display = 'none';
+            }
         }
     });
 });

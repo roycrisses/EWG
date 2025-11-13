@@ -13,10 +13,17 @@ body { font-family: var(--font); color: var(--text); line-height: 1.6; overflow-
 .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
 .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
 .logo-text { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
-.nav-menu { display: flex; gap: 2rem; align-items: center; }
+.nav-menu { display: flex !important; gap: 2rem; align-items: center; }
+@media (max-width: 768px) {
+    .nav-menu { display: none !important; }
+}
 .nav-link { color: var(--text); text-decoration: none; font-weight: 500; position: relative; transition: 0.3s; }
 .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary); transition: 0.3s; }
 .nav-link:hover::after { width: 100%; }
+/* Keep nav links visible on click/visited/focus */
+.nav-link:visited { color: var(--text); }
+.nav-link:active { color: var(--text); }
+.nav-link:focus { color: var(--text); outline: none; }
 .nav-dropdown { position: relative; }
 .dropdown-arrow { font-size: 0.7rem; margin-left: 0.3rem; transition: 0.3s; }
 .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
@@ -36,7 +43,7 @@ body { font-family: var(--font); color: var(--text); line-height: 1.6; overflow-
 .hero-title { font-family: var(--display); font-size: 4.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
 .title-line { display: block; }
 .title-line.accent { color: var(--primary); }
-.hero-subtitle { font-size: 1.25rem; color: var(--gray); margin-bottom: 2rem; }
+.hero-subtitle { font-size: 1.25rem; color: #ffffff !important; margin-bottom: 2rem; }
 .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn { padding: 1rem 2rem; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.3s; }
 .btn-primary { background: var(--primary); color: white; }
@@ -132,7 +139,7 @@ body { font-family: var(--font); color: var(--text); line-height: 1.6; overflow-
 .service-item:nth-child(3) .service-content p { color: rgba(255,255,255,0.8); }
 .service-item:nth-child(3) .tag { background: rgba(255,255,255,0.1); color: #ffb800; border: 1px solid #ffb800; }
 .service-item:nth-child(4) { background-image: none !important; background: #005856 !important; border: 2px solid #ffb800; }
-.service-item:nth-child(5) { background-image: none !important; background: #61fb3e !important; border: 2px solid #0052cc; }
+.service-item:nth-child(5) { background-image: none !important; background: #00897b !important; border: 2px solid #00897b; }
 .service-item:nth-child(6) { background-image: none !important; background: #1a1a1a !important; border: 2px solid #000000; color: white; }
 .service-item:nth-child(6) .service-number { color: #ffb800; }
 .service-item:nth-child(6) .service-content h3 { color: white; }
@@ -145,16 +152,29 @@ body { font-family: var(--font); color: var(--text); line-height: 1.6; overflow-
 .service-item:nth-child(3) .service-number { color: #ffb800 !important; opacity: 1 !important; }
 /* 05 -> black */
 .service-item:nth-child(5) .service-number { color: #000000 !important; opacity: 1 !important; }
+.service-item:nth-child(5) .service-content p { color: #ffffff !important; }
 /* 06 -> dark yellow (already set above) */
 /* Digital Marketing (Service 04) text overrides */
 .service-item:nth-child(4) .service-content h3 { color: #ffffff !important; }
 .service-item:nth-child(4) .service-content p { color: #ffffff !important; }
 .service-item:nth-child(4) .service-number { color: #000000 !important; opacity: 1 !important; }
 .service-item.animated { opacity: 1; visibility: visible; pointer-events: auto; box-shadow: none !important; filter: none !important; -webkit-filter: none !important; }
-.service-number { font-size: 4rem; font-weight: 800; color: var(--primary); opacity: 0.3; position: relative; z-index: 1; }
+/* Contact section always visible and properly laid out */
+#contact .service-item { 
+  opacity: 1 !important; 
+  visibility: visible !important; 
+  pointer-events: auto !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1.2fr !important;
+  gap: 2rem !important;
+  align-items: start !important;
+}
+.service-number { font-size: 4rem; font-weight: 800; color: #000000; opacity: 1; position: relative; z-index: 1; }
 .service-content { position: relative; z-index: 1; }
 .service-content h3 { font-size: 1.8rem; margin-bottom: 0.75rem; }
 .service-content p { color: var(--gray); margin-bottom: 1rem; }
+/* Service 01 (Educational Excellence) paragraph to white */
+.service-item:nth-child(1) .service-content p { color: #ffffff !important; }
 /* Force Technology Innovation (card 2) paragraph text to black */
 .service-item:nth-child(2) .service-content p { color: #000000 !important; }
 .service-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
@@ -276,30 +296,41 @@ body { font-family: var(--font); color: var(--text); line-height: 1.6; overflow-
 .bento-item.large-1 { background: #ffb800 !important; border: 2px solid #ffb800; border-radius: 16px 0 0 16px; }
 .bento-item.small-1 { background: #0052cc !important; border: 2px solid #0052cc; border-radius: 0; }
 .bento-item.small-2 { background: #ffa500 !important; border: 2px solid #ffa500; border-radius: 0 12px 12px 0; }
-.bento-item.medium-2 { background: #0052cc !important; border: 2px solid #0052cc; border-radius: 12px 0 12px 0; }
+.bento-item.medium-2 { background: #0052cc !important; border: 2px solid #0052cc; border-radius: 12px 0 12px 0; min-height: 600px; grid-row: span 2 !important; }
 .bento-item.large-2 { background: #00897b !important; border: 2px solid #00897b; border-radius: 0 16px 16px 0; }
 .bento-item.medium-1 { background: #1a1a1a; border: 2px solid #000000; color: white; }
-.bento-item.medium-1 p { color: rgba(255,255,255,0.8); }
+.bento-item.medium-1 p { color: #ffffff !important; }
 .bento-item.medium-1 .support-features span { background: rgba(255,255,255,0.1); color: #ffb800; border: 1px solid #ffb800; }
-.bento-item.medium-2 { background: #0052cc !important; border: 2px solid #0052cc; }
+.bento-item.medium-2 { background: #0052cc !important; border: 2px solid #0052cc; min-height: 600px; }
 .bento-item.large-2 { background: #00897b !important; border: 2px solid #00897b; }
 .bento-item.large-1, .bento-item.large-2 { grid-column: span 2; grid-row: span 2; height: auto; min-height: 600px; }
-.bento-item.medium-1, .bento-item.medium-2 { grid-column: span 2; grid-row: span 1; height: auto; min-height: 320px; }
+.bento-item.medium-1, .bento-item.medium-2 { grid-column: span 2; height: auto; min-height: 320px; }
 .bento-item.small-1, .bento-item.small-2 { grid-column: span 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .bento-icon { font-size: 3rem; margin-bottom: 1rem; }
 .bento-item h3 { font-size: 1.8rem; margin-bottom: 1rem; }
 .bento-item h4 { font-size: 1.3rem; margin-bottom: 0.75rem; }
 .bento-item p { color: var(--gray); }
+/* Force all Bento grid descriptions to solid black */
+.why-choose-section .bento-item:not(.medium-1) p { color: #000000 !important; }
+/* Innovation First (bento medium-2) text to white */
+.bento-item.medium-2 h3 { color: #ffffff !important; }
+.bento-item.medium-2 p { color: #ffffff !important; }
 .support-features { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
 .support-features span { padding: 0.5rem 1rem; background: white; border-radius: 20px; font-size: 0.9rem; color: var(--primary); font-weight: 500; }
 .bento-image-placeholder, .world-map-placeholder { margin-top: 1rem; background: #f0f0f0; border-radius: 10px; height: 200px; display: flex; align-items: center; justify-content: center; color: var(--gray); }
 .bento-item.large-1 .bento-image-placeholder, .bento-item.large-2 .world-map-placeholder { height: 300px; }
-.bento-item.medium-1 .bento-image-placeholder, .bento-item.medium-2 .bento-image-placeholder { height: 220px; }
+.bento-item.medium-1 .bento-image-placeholder, .bento-item.medium-2 .bento-image-placeholder { height: 300px; }
 
 /* Case Studies */
 .case-studies-section { padding: 6rem 2rem; background: var(--dark); color: white; overflow: hidden; }
 .case-studies-header .section-title { color: white; }
 .case-studies-carousel { max-width: 1600px; margin: 0 auto; overflow: hidden; }
+
+/* Center section headings site-wide (does not target card titles) */
+.section-title { text-align: center; margin-left: auto; margin-right: auto; font-size: clamp(2.2rem, 4vw, 3.2rem); }
+.section-subtitle { text-align: center; margin-left: auto; margin-right: auto; font-size: clamp(1.1rem, 2vw, 1.35rem); }
+.why-choose-header, .case-studies-header, .testimonials-header { text-align: center; }
+.testimonials-section .section-title, .testimonials-section .section-subtitle { text-align: center; }
 .case-study-track { display: flex; gap: 2rem; animation: slideCarousel 40s linear infinite; }
 .case-study-card { min-width: 400px; background: rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); transition: 0.3s; flex-shrink: 0; }
 .case-study-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.1); }
