@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.90">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="Easy Way Groups - Delivering Excellence Through Education, Technology, and Media">
     <title>Easy Way Groups | Delivering Services The EASYWAY</title>
     <link rel="stylesheet" href="css/style.css">
@@ -457,57 +458,49 @@
         </div>
     </section>
 
-    <!-- Contact Us - Split Layout (FAQ left, Form right) -->
-    <section class="services-section" id="contact">
-        <div class="services-container">
-            <h2 class="section-title" style="margin-bottom: 1rem;">Contact Us</h2>
-            <p class="section-subtitle" style="margin-bottom: 2rem;">We usually reply within one business day</p>
+    <!-- Contact Us - Minimal Sharp Design -->
+    <section class="contact-minimal" id="contact">
+        <div class="contact-minimal-inner">
+            <div class="contact-minimal-header">
+                <h2>Contact Us</h2>
+                <p>We usually reply within one business day</p>
+            </div>
 
-            <div class="service-item" style="grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;">
+            <div class="contact-minimal-content">
                 <!-- FAQ Left -->
-                <div>
-                    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 700; color: #ffffff;">Frequently Asked Questions</h3>
-                    <div class="faq" style="display: grid; gap: 1rem;">
-                        <details style="background: linear-gradient(135deg, #f0f4ff 0%, #f9f5ff 100%); border: 2px solid #0052cc; border-radius: 12px; padding: 1.25rem; transition: all 0.3s ease; cursor: pointer;">
-                            <summary style="cursor: pointer; font-weight: 700; color: #0052cc; font-size: 1rem; display: flex; align-items: center; gap: 0.75rem;">
-                                <span style="font-size: 1.3rem;">⏱️</span>
-                                <span>How soon will you respond?</span>
-                            </summary>
-                            <p style="margin-top: 1rem; color: var(--text); line-height: 1.6; padding-left: 2.05rem;">We reply within one business day. Priority support is available 24/7 for urgent matters.</p>
-                        </details>
-                        <details style="background: linear-gradient(135deg, #fff5f0 0%, #fff9f5 100%); border: 2px solid #ffa500; border-radius: 12px; padding: 1.25rem; transition: all 0.3s ease; cursor: pointer;">
-                            <summary style="cursor: pointer; font-weight: 700; color: #ffa500; font-size: 1rem; display: flex; align-items: center; gap: 0.75rem;">
-                                <span style="font-size: 1.3rem;">🎯</span>
-                                <span>Do you offer custom solutions?</span>
-                            </summary>
-                            <p style="margin-top: 1rem; color: var(--text); line-height: 1.6; padding-left: 2.05rem;">Absolutely. We tailor Education, Technology, and Media solutions specifically to your business needs and goals.</p>
-                        </details>
-                        <details style="background: linear-gradient(135deg, #f0fff5 0%, #f5fff9 100%); border: 2px solid #00897b; border-radius: 12px; padding: 1.25rem; transition: all 0.3s ease; cursor: pointer;">
-                            <summary style="cursor: pointer; font-weight: 700; color: #00897b; font-size: 1rem; display: flex; align-items: center; gap: 0.75rem;">
-                                <span style="font-size: 1.3rem;">📅</span>
-                                <span>Can we schedule a demo?</span>
-                            </summary>
-                            <p style="margin-top: 1rem; color: var(--text); line-height: 1.6; padding-left: 2.05rem;">Yes! Include your preferred date and time in the contact form, and our team will confirm the demo session with you.</p>
-                        </details>
-                        <details style="background: linear-gradient(135deg, #fffef0 0%, #fffbf5 100%); border: 2px solid #ffb800; border-radius: 12px; padding: 1.25rem; transition: all 0.3s ease; cursor: pointer;">
-                            <summary style="cursor: pointer; font-weight: 700; color: #ffb800; font-size: 1rem; display: flex; align-items: center; gap: 0.75rem;">
-                                <span style="font-size: 1.3rem;">🌍</span>
-                                <span>What industries do you serve?</span>
-                            </summary>
-                            <p style="margin-top: 1rem; color: var(--text); line-height: 1.6; padding-left: 2.05rem;">We specialize in Education, Technology, and Media, plus cross-industry digital transformations for any sector.</p>
-                        </details>
+                <div class="contact-minimal-faq">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <h4>How soon will you respond?</h4>
+                            <p>We reply within one business day. Priority support available for urgent matters.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Do you offer custom solutions?</h4>
+                            <p>Yes. All Education, Technology, and Media solutions are tailored to your goals.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Can we schedule a demo?</h4>
+                            <p>Include your preferred date and time in the message and we will confirm.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>What industries do you serve?</h4>
+                            <p>We work across Education, Technology, Media, and digital transformation.</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Form Right -->
-                <form id="home-contact-form" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-                    <input type="text" name="name" placeholder="Full Name" required style="padding: 0.85rem 1rem; border: 2px solid #e5e7eb; border-radius: 10px; grid-column: span 1;" />
-                    <input type="email" name="email" placeholder="Email" required style="padding: 0.85rem 1rem; border: 2px solid #e5e7eb; border-radius: 10px; grid-column: span 1;" />
-                    <input type="text" name="subject" placeholder="Subject" required style="padding: 0.85rem 1rem; border: 2px solid #e5e7eb; border-radius: 10px; grid-column: span 2;" />
-                    <textarea name="message" rows="5" placeholder="Message" required style="padding: 0.85rem 1rem; border: 2px solid #e5e7eb; border-radius: 10px; grid-column: span 2;"></textarea>
-                    <div style="grid-column: span 2; display: flex; gap: 1rem; align-items: center;">
-                        <button class="btn btn-primary" type="submit">Send Message →</button>
-                        <span id="home-contact-status" style="color: var(--text);"></span>
+                <form id="home-contact-form" class="contact-minimal-form">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Full name" required />
+                        <input type="email" name="email" placeholder="Email" required />
+                    </div>
+                    <input type="text" name="subject" placeholder="Subject" required />
+                    <textarea name="message" rows="4" placeholder="Message" required></textarea>
+                    <div class="form-actions">
+                        <button type="submit" class="contact-btn">Send message</button>
+                        <span id="home-contact-status"></span>
                     </div>
                 </form>
             </div>
@@ -607,5 +600,5 @@
         });
       }
     </script>
-</body>
-</html>
+  </body>
+  </html>

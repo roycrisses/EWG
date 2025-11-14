@@ -318,6 +318,25 @@ const validateForm = (form) => {
     return isValid;
 };
 
+// Case Studies carousel - make track loop seamlessly by duplicating items once
+const setupInfiniteCaseStudiesCarousel = () => {
+    const track = document.querySelector('.case-study-track');
+    if (!track || track.dataset.duplicated === 'true') return;
+
+    const cards = Array.from(track.children);
+    if (cards.length === 0) return;
+
+    // Duplicate each card once to get two identical sequences
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.classList.add('case-study-clone');
+        track.appendChild(clone);
+    });
+
+    // Mark as processed so we don't duplicate again
+    track.dataset.duplicated = 'true';
+};
+
 // Scroll to top button
 const createScrollToTopButton = () => {
     const button = document.createElement('button');
@@ -369,11 +388,14 @@ window.addEventListener('resize', () => {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Easy Way Groups website loaded successfully');
-    
+
     // Show initial slide
     if (slides.length > 0) {
         showSlide(0);
     }
-    
+
+    // Ensure case studies carousel loops infinitely
+    setupInfiniteCaseStudiesCarousel();
+
     // Add any additional initialization here
 });
